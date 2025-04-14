@@ -1,7 +1,7 @@
 import { Column, Entity, PrimaryColumn } from 'typeorm';
 import { PokemonType, Stat } from '../interfaces/pokemon.interface';
 
-@Entity()
+@Entity('pokemon')
 export class Pokemon {
   @PrimaryColumn()
   id: number;
@@ -27,9 +27,9 @@ export class Pokemon {
   @Column({ type: 'jsonb' })
   stats: Stat[];
 
-  @Column()
+  @Column({ name: 'name_japanese' })
   nameJapanese: string;
 
-  @Column()
+  @Column({ name: 'total_power' })
   totalPower: number;
 }
